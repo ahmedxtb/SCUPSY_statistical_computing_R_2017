@@ -57,7 +57,7 @@ polygon(c(-4,x,my_zscore),c(0,y,0),col="gray")
 abline(0,0)
 
 
-# the first figure, left tailed
+# the second figure, right tailed
 x=seq(-4, 4, length=100)
 y=dnorm(x, mean = 0, sd = 1)
 plot(x,y,type="l", lwd=2, col="black", main = "one tailed/ right")
@@ -69,7 +69,7 @@ y=dnorm(x, mean = 0, sd = 1)
 polygon(c(my_zscore, x, 4),c(0,y,0),col="gray")
 abline(0,0)
 
-# the first figure, two tailed
+# the third figure, two tailed
 x=seq(-4, 4, length=100)
 y=dnorm(x, mean = 0, sd = 1)
 plot(x,y,type="l", lwd=2, col="black", main = "one tailed/ left")
@@ -87,9 +87,10 @@ y=dnorm(x, mean = 0, sd = 1)
 polygon(c(my_zscore, x, 4),c(0,y,0),col="gray")
 abline(0,0)
 
-abline(0,0)
+#abline(0,0)
 
-# the first figure, left tailed
+# t distribution
+par(mfrow=c(1,1))
 x=seq(-4, 4, length=100)
 y=dt(x, df = 1)
 plot(x,y,type="l", lwd=2, lty = 1, col="black", ylim = c(0, 0.8))
