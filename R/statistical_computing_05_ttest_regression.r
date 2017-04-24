@@ -181,3 +181,44 @@ summary(fit)
 anova(fit.re, fit)
 
 
+# Akaike information criterion
+library(MASS)
+
+AIC(lm(Y ~ X1 + X2 + X3, df))
+
+AIC(lm(Y ~ X1 + X2, df))
+AIC(lm(Y ~ X1 + X3, df))
+AIC(lm(Y ~ X2 + X3, df))
+
+AIC(lm(Y ~ X1, df))
+AIC(lm(Y ~ X2, df))
+AIC(lm(Y ~ X3, df))
+
+# logistic regression
+first.name = rep(c(1,0), c(2500, 2500))
+offer = rep(c(1,0,1,0), rep(1250, 4))
+opened = c(rep(c(1,0), c(20, 1250-20)), rep(c(1,0), c(15, 1250-15)),
+               rep(c(1,0), c(17, 1250-17)), rep(c(1,0), c(8, 1250-8)))
+xtabs(opened ~ first.name + offer)
+
+res.glm = glm(opened ~ factor(first.name) + factor(offer), family = binomial)
+summary(res.glm)
+
+#  odd of opening spam mail increased by 1.406 times if the title includes offer
+exp(1)^(0.3407)
+
+# install.packages("UsingR")
+library(UsingR)
+
+dim(tastesgreat)
+str(tastesgreat)
+summary(tastesgreat)
+head(tastesgreat)
+
+plot(tastesgreat$gender, factor(tastesgreat$enjoyed))
+plot(factor(tastesgreat$enjoyed), tastesgreat$age, )
+
+res.glm = glm(enjoyed ~ age + gender, data = tastesgreat, family = binomial)
+summary(res.glm)
+
+exp(1)^(0.16)
